@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Application from './views/Application';
+import ApplicationAdding from "./views/ApplicationAdding";
+import SearchForAppPage from "./views/SearchForAppPage";
+import SearchForServicePage from "./views/SearchForServicePage";
+
+export default class App extends Component {
+
+  //Router to different pages
+  render() {
+    return (
+        <Router>
+            <Route path="/" exact component={Application} />
+            <Route path="/adding" exact component={ApplicationAdding} />
+            <Route path="/searchApp" exact component={SearchForAppPage} />
+            <Route path="/searchServ" exact component={SearchForServicePage} />
+        </Router>
+    )
+  }
 }
-
-export default App;
